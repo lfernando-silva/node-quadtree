@@ -1,0 +1,10 @@
+{
+  "name": "node-quad-tree",
+  "version": "0.0.0",
+  "description": "Node-QuadTree",
+  "main": "server.js",
+  "author": {
+    "name": "lfern",
+    "email": ""
+  }
+}
