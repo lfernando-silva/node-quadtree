@@ -4,5 +4,4 @@
     this.y = y;
     this.filhos = new Array(4);
 };
-
 module.exports = No;

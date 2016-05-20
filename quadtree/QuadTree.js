@@ -15,7 +15,6 @@ var QuadTree = {
     },
 
     insere: function (raiz,valor,x,y){
-        
         if (!raiz) return new No(valor,x,y);
         
         var quadrante = QuadTree.getQuadrante(raiz, x, y);

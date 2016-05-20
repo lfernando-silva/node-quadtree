@@ -1,8 +1,8 @@
 ﻿var QuadTree = require('../quadtree/QuadTree.js');
+var DataParse = require('../dataparser/DataParse.js');
 
 var Interface = {
     pointFormat: function (pointString) {
-        
         var virgula = pointString.indexOf(',');
         var length = pointString.length;
         var strX = pointString.slice(0, virgula);
@@ -19,6 +19,12 @@ var Interface = {
 
     busca: function (point,x,y){
         return QuadTree.busca(point,x,y);
+    },
+
+    initDatasource: function (){
+        return DataParse.readTTL('example_en.ttl', function (file) {
+            if (file) console.log(file);
+        });
     }
 };
 
