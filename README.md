@@ -2,7 +2,8 @@
 Aluno: Luiz Fernando da Silva
 Programa de Pós Graduação em Ciência da Computação - Universidade Federal de Juiz de Fora
 Turma: 2016/1
-
+Data: 23/05/2016
+Repositório: https://github.com/lfernando-silva/node-quadtree
 -------------------------
 Implementação de QuadTree com NodeJS
 
