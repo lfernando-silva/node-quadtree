@@ -7,7 +7,7 @@
 -------------------------
 Implementação de QuadTree com NodeJS
 
-Observações
+- Observações
 
 - Como o NodeJS se comporta de maneira não-bloqueante, as operações de inserção dos pontos e leitura do arquivo
 ocorrem de forma "quase-paralela", o que implica que o sistema não fica travado enquanto os nós são inseridos.
@@ -20,4 +20,15 @@ de 15 segundos).
 
 - Os arquivos .ttl devem ser colocados na pasta .[pastadoprojeto]/dataparser/datasets/.
 
+- Executar o projeto: $ node server.js na pasta onde está o script "server.js"
 
+-------------------------
+Entidades
+
+- QuadTree.js -> Objeto (singleton) manipulador das operações da quadtree
+- No.js -> Objeto que representa a estrutura nó da árvore
+- DataParser.js -> Objeto (singleton) que faz a validação e a conversão dos dados de entrada
+- Interface.js -> Objeto (singleton) que realiza operações de terminal e encapsula as mensagens entre o server.js e
+a QuadTree ou o DataParser
+- package.json -> Descritor, arquivo de metadados e que mapeia dependências. No projeto, não tem importância.
+- server.js -> Script de inicialização do sistema.

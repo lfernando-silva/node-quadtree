@@ -29,8 +29,7 @@ var QuadTree = {
     busca: function (raiz, x, y){
         if (raiz) {
             if ((raiz.x == x) && (raiz.y == y)) {
-                QuadTree.encontrado = 'URL: ' + raiz.url;
-                QuadTree.repetidos = QuadTree.repetidos + 1;                
+                QuadTree.encontrado = 'URL: ' + raiz.url;              
             }
             var quadrante = QuadTree.getQuadrante(raiz, x, y);
             raiz.filhos[quadrante] = QuadTree.busca(raiz.filhos[quadrante], x, y);
