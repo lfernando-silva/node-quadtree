@@ -1,9 +1,9 @@
 ﻿# Node-QuadTree
-Aluno: Luiz Fernando da Silva
-Programa de Pós Graduação em Ciência da Computação - Universidade Federal de Juiz de Fora
-Turma: 2016/1
-Data: 23/05/2016
-Repositório: https://github.com/lfernando-silva/node-quadtree
+- Aluno: Luiz Fernando da Silva
+- Programa de Pós Graduação em Ciência da Computação - Universidade Federal de Juiz de Fora
+- Turma: 2016/1
+- Data: 23/05/2016
+- Repositório: https://github.com/lfernando-silva/node-quadtree
 -------------------------
 Implementação de QuadTree com NodeJS
 
@@ -17,5 +17,7 @@ ocorrem de forma "quase-paralela", o que implica que o sistema não fica travado
 - Entretanto, no pequeno intervalo em que isso acontece, um nó pesquisado pode não ser encontrado, já que ainda
 não foi inserido. Recomenda-se aguardar alguns segundos até que seja finalizado o processo de inserção (em torno
 de 15 segundos).
+
+- Os arquivos .ttl devem ser colocados na pasta .[pastadoprojeto]/dataparser/datasets/.
 
 
