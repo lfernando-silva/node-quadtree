@@ -1,5 +1,5 @@
-﻿var No = function (valor,x,y) {
-    this.valor = valor;
+﻿var No = function (url,x,y) {
+    this.url = url;
     this.x = x;
     this.y = y;
     this.filhos = new Array(4);
