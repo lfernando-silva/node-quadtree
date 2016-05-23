@@ -1,8 +1,14 @@
-﻿var QuadTree = require('../quadtree/QuadTree.js');
+﻿var os = require('os'); //Biblioteca para informações do sistema operacional
+var Medidor = require('./Medidor.js');
+var QuadTree = require('../quadtree/QuadTree.js');
 var DataParse = require('../dataparser/DataParse.js');
-var mensagemTerminal = '\n*****\nDigite os pontos no formato: X,Y / X[ESPAÇO]Y ou digite END para encerrar.\n';
-mensagemTerminal = mensagemTerminal + 'Se o ponto existir, sua URL será impressa na tela, caso contrário, nada acontece.\n';
-mensagemTerminal = mensagemTerminal + ' (X,Y) = ';
+
+var instrucao = '\n*****\nDigite os pontos no formato: X,Y / X[ESPAÇO]Y ou digite END para encerrar.\n';
+var observacao = 'Se o ponto existir, sua URL será impressa na tela, caso contrário, que não foi encontrado.\n';
+var marcacao = ' (X,Y) = ';
+
+//Mensagem exibida no terminal
+var mensagemTerminal = instrucao + observacao + marcacao;
 
 var Interface = {
     
@@ -10,6 +16,7 @@ var Interface = {
     mensagemTerminal: mensagemTerminal,
     getEncontrado: getEncontrado,
     setEncontrado: setEncontrado,
+    setInicio: setInicio,
     
     pointFormat: function (pointString) {
         var virgula = pointString.indexOf(',');
@@ -30,16 +37,16 @@ var Interface = {
         }
     },
     
+    //Busca na QUADTREE
     busca: function (point, x, y) {
         QuadTree.busca(point, x, y);
     },
     
-    initEnDatasource: function () {
-        return DataParse.readTTL('geo_coordinates_mappingbased_en.ttl');
-    },
-
-    initDeDatasource: function () {
-        return DataParse.readTTL('geo_coordinates_mappingbased_de.ttl');
+    //Leitura assíncrona dos dois arquivos
+    initDataSources: function () {
+        DataParse.readTTL('geo_coordinates_mappingbased_en.ttl');
+        DataParse.readTTL('geo_coordinates_mappingbased_de.ttl');
+        return true;
     }
 };
 
@@ -61,12 +68,22 @@ function getReferencia() {
     return QuadTree.raiz;
 }
 
+//Obtém o resultado da última busca
 function getEncontrado(){
+    Medidor.logBuscaInfo();
     return QuadTree.encontrado;
 }
 
+//Reseta o resultado da busca
 function setEncontrado(){
     QuadTree.encontrado = null;
+    Medidor.inicioBuscaEm = new Date().getTime();
+}
+
+//Marca o timestamp de início e a memória inicial em mb
+function setInicio() {
+    Medidor.inicioEm = new Date().getTime();
+    Medidor.memoriaEmUsoInicial = (os.totalmem() - os.freemem()) / 1048576;
 }
 
 module.exports = Interface;

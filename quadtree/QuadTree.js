@@ -2,6 +2,7 @@
 
 var QuadTree = {
     
+    n: 0,
     raiz: null,
     encontrado: null,
     getQuadrante: function (raiz, x, y){
